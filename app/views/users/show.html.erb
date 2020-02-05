@@ -7,6 +7,14 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
+  <h1>GitHub Repositories</h1>
+  <% @repos.each do |repo| %>
+    <ul>
+      <section class='repos'>
+        <li><%= link_to repo[:name], repo[:svn_url] %></li>
+      </section>
+    </ul>
+  <% end %>
   <section>
     <h1>Bookmarked Segments</h1>
   </section>

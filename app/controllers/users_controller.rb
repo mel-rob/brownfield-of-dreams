@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  def show; end
 
   def new
     @user = User.new
@@ -16,6 +15,16 @@ class UsersController < ApplicationController
       flash[:error] = 'Username already exists'
       render :new
     end
+  end
+
+  def show
+    conn = Faraday.new(url: 'https://api.github.com') do |faraday|
+      faraday.headers["Authorization"] = "token #{current_user.github_token}"
+      faraday.adapter Faraday.default_adapter
+    end
+
+    response = conn.get("/user/repos?page=1&per_page=5")
+    @repos = JSON.parse(response.body, symbolize_names: true)
   end
 
   private

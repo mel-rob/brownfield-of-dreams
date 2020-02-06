@@ -27,7 +27,5 @@ RSpec.describe 'user dashboard page' do
     within(first('.followers')) do
       expect(page).to have_link('mel-rob', href: "https://github.com/mel-rob")
     end
-
-    save_and_open_page
   end
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
   scenario 'user can see 5 of their github repos', :vcr do
-    user = create(:user, github_token: ENV['AUTHORIZATION'])
+    user = create(:user, github_token: ENV['GITHUB_ACCESS_TOKEN'])
 
     visit login_path
 

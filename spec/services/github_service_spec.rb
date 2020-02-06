@@ -3,7 +3,7 @@ require 'rails_helper'
 describe GithubService do
   context 'instance methods' do
     scenario 'returns repo data', :vcr do
-      github_service = GithubService.new(ENV['AUTHORIZATION'])
+      github_service = GithubService.new(ENV['GITHUB_ACCESS_TOKEN'])
       search = github_service.repos_by_token
       expect(search).to be_a Array
       expect(search.count).to eq 5
@@ -14,7 +14,7 @@ describe GithubService do
     end
 
     scenario 'returns follower data', :vcr do
-      github_service = GithubService.new(ENV['AUTHORIZATION'])
+      github_service = GithubService.new(ENV['GITHUB_ACCESS_TOKEN'])
       search = github_service.followers_by_token
       expect(search).to be_a Array
       expect(search.count).to eq 2
@@ -25,7 +25,7 @@ describe GithubService do
     end
 
     scenario 'returns following data', :vcr do
-      github_service = GithubService.new(ENV['AUTHORIZATION'])
+      github_service = GithubService.new(ENV['GITHUB_ACCESS_TOKEN'])
       search = github_service.following_by_token
       expect(search).to be_a Array
       expect(search.count).to eq 2

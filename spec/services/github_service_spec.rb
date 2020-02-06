@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe GithubService do
   context 'instance methods' do
-    it 'returns repo data' do
-      user = create(:user, github_token: 'eb9bda32691b14e57d80820ebf5fc625b3d885ff')
+    scenario 'returns repo data', :vcr do
+      user = create(:user, github_token: ENV['AUTHORIZATION'])
       search = subject.repos_by_token(user.github_token)
       expect(search).to be_a Array
       expect(search.count).to eq 5

@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
-  scenario 'user can see all of their github followers' do
-    json_response = File.read('spec/fixtures/users_github_followers.json')
-    stub_request(:get, 'https://api.github.com/user/followers').
-    to_return(status: 200, body: json_response)
-
+  scenario 'user can see all of their github followers', :vcr do
     user = create(:user, github_token: ENV['AUTHORIZATION'])
 
     visit login_path
@@ -25,7 +21,7 @@ RSpec.describe 'user dashboard page' do
     end
 
     within(first('.followers')) do
-      expect(page).to have_link('mel-rob', href: "https://github.com/mel-rob")
+      expect(page).to have_link('sasloan', href: "https://github.com/sasloan")
     end
   end
 end

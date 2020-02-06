@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
-  scenario 'user can see 5 of their github repos' do
-    # OPTIMIZE: should we be using a vcr?
-
-    json_response = File.read('spec/fixtures/users_5_github_repos.json')
-    stub_request(:get, 'https://api.github.com/user/repos?page=1&per_page=5').
-    to_return(status: 200, body: json_response)
-
+  scenario 'user can see 5 of their github repos', :vcr do
     user = create(:user, github_token: ENV['AUTHORIZATION'])
 
     visit login_path

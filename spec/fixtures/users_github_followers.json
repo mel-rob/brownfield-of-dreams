@@ -1,0 +1,42 @@
+[
+    {
+        "login": "mel-rob",
+        "id": 51456023,
+        "node_id": "MDQ6VXNlcjUxNDU2MDEz",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/51456013?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mel-rob",
+        "html_url": "https://github.com/mel-rob",
+        "followers_url": "https://api.github.com/users/mel-rob/followers",
+        "following_url": "https://api.github.com/users/mel-rob/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mel-rob/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mel-rob/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mel-rob/subscriptions",
+        "organizations_url": "https://api.github.com/users/mel-rob/orgs",
+        "repos_url": "https://api.github.com/users/mel-rob/repos",
+        "events_url": "https://api.github.com/users/mel-rob/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mel-rob/received_events",
+        "type": "User",
+        "site_admin": false
+    },
+    {
+        "login": "sasloan",
+        "id": 51456013,
+        "node_id": "MDQ6VXNlcjUxNDU2MDEz",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/51456013?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/sasloan",
+        "html_url": "https://github.com/sasloan",
+        "followers_url": "https://api.github.com/users/sasloan/followers",
+        "following_url": "https://api.github.com/users/sasloan/following{/other_user}",
+        "gists_url": "https://api.github.com/users/sasloan/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/sasloan/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/sasloan/subscriptions",
+        "organizations_url": "https://api.github.com/users/sasloan/orgs",
+        "repos_url": "https://api.github.com/users/sasloan/repos",
+        "events_url": "https://api.github.com/users/sasloan/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/sasloan/received_events",
+        "type": "User",
+        "site_admin": false
+    }
+]

@@ -8,14 +8,26 @@
     <li> <%= current_user.email%> </li>
   </ul>
     <% if current_user.github_token %>
-      <h1>GitHub Repositories</h1>
-      <% search_results.repos.each do |repo| %>
-        <ul>
-          <section class='repos'>
-            <li><%= link_to repo.name, repo.svn_url %></li>
-          </section>
-        </ul>
-      <% end %>
+      <section class='github'>
+
+        <h1>GitHub</h1>
+        <h3>Repositories</h3>
+        <% search_results.repos.each do |repo| %>
+          <ul>
+            <section class='repos'>
+              <li><%= link_to repo.name, repo.svn_url %></li>
+            </section>
+          </ul>
+        <% end %>
+        <h3>Followers</h3>
+        <% search_results.followers.each do |follower| %>
+          <ul>
+            <section class='followers'>
+              <li><%= link_to follower.login, follower.html_url %></li>
+            </section>
+          </ul>
+        <% end %>
+      </section>
     <% end %>
   <section>
     <h1>Bookmarked Segments</h1>

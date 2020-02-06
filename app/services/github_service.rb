@@ -1,10 +1,15 @@
 class GithubService
   # OPTIMIZE: should github_token be an attribute of GitHubService?
   # OPTIMIZE: why is repos_by_token an instance method and not class method?
-  
+
   def repos_by_token(github_token)
     @github_token = github_token
     get_json("/user/repos?page=1&per_page=5")
+  end
+
+  def followers_by_token(github_token)
+    @github_token = github_token
+    get_json("/user/followers")
   end
 
   private

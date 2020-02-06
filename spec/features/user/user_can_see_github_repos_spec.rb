@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
   scenario 'user can see 5 of their github repos' do
-
+    # OPTIMIZE: should we be using a vcr?
 
     json_response = File.read('spec/fixtures/users_5_github_repos.json')
     stub_request(:get, 'https://api.github.com/user/repos?page=1&per_page=5').
     to_return(status: 200, body: json_response)
 
-    user = create(:user, github_token: '38cc530ff45301e738924d4d94a94166a34016aa')
+    user = create(:user, github_token: ENV['AUTHORIZATION'])
 
     visit login_path
 
@@ -19,8 +19,10 @@ RSpec.describe 'user dashboard page' do
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content('GitHub Repositories')
-
+    within('.github') do
+      expect(page).to have_content('GitHub')
+      expect(page).to have_content('Repositories')
+    end
     expect(page).to have_css('.repos', count: 5)
 
     within(first('.repos')) do

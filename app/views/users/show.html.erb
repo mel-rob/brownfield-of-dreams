@@ -27,6 +27,14 @@
             </section>
           </ul>
         <% end %>
+        <h3>Following</h3>
+        <% search_results.following.each do |user| %>
+          <ul>
+            <section class='following'>
+              <li><%= link_to user.login, user.html_url %></li>
+            </section>
+          </ul>
+        <% end %>
       </section>
     <% end %>
   <section>

@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
   scenario 'user can see 5 of their github repos' do
-    # WebMock.enable_net_connect!
-    #   VCR.eject_cassette
-    #   VCR.turn_off!(ignore_cassettes: true)
+
 
     json_response = File.read('spec/fixtures/users_5_github_repos.json')
     stub_request(:get, 'https://api.github.com/user/repos?page=1&per_page=5').
@@ -24,7 +22,6 @@ RSpec.describe 'user dashboard page' do
     expect(page).to have_content('GitHub Repositories')
 
     expect(page).to have_css('.repos', count: 5)
-    save_and_open_page
 
     within(first('.repos')) do
       expect(page).to have_link('adopt_dont_shop_paired', href: 'https://github.com/DanielEFrampton/adopt_dont_shop_paired')

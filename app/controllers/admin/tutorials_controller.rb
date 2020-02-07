@@ -5,7 +5,8 @@ class Admin::TutorialsController < Admin::BaseController
     @tutorial = Tutorial.find(params[:id])
   end
 
-  def create; end
+  def create
+  end
 
   def new
     @tutorial = Tutorial.new
@@ -17,6 +18,11 @@ class Admin::TutorialsController < Admin::BaseController
       flash[:success] = "#{tutorial.title} tagged!"
     end
     redirect_to edit_admin_tutorial_path(tutorial)
+  end
+
+  def destroy
+    Tutorial.destroy(params[:id])
+    redirect_to admin_dashboard_path
   end
 
   private

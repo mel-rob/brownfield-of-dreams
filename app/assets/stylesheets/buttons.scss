@@ -10,3 +10,24 @@
 .btn:hover {
   background-color: transparent;
 }
+
+form.button_to {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  div { display: inline; }
+  input[type=submit] {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    color: #0074d9;
+  }
+}
+
+#link-btn:hover {
+    text-decoration: underline;
+}

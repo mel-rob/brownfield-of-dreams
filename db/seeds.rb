@@ -115,6 +115,16 @@
 #   "position"=>6
 # })
 
+# mod_4_tutorial_data = {
+#   "title"=>"Back End Engineering - Module 4",
+#   "description"=>"Videos related to Mod 4.",
+#   "thumbnail"=>"https://i.ytimg.com/vi/tZDBWXZzLPk/hqdefault.jpg",
+#   "playlist_id"=>"PL1Y67f0xPzdNsXqiJs1s4NlpI6ZMNdMsb",
+#   "classroom"=>false,
+# }
+#
+# m4_tutorial = Tutorial.create! mod_4_tutorial_data
+
 User.destroy_all
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)
 User.create(email: 'ryan@email.com', first_name: 'Ryan', last_name: 'Allen', password: "password", github_token: ENV['GITHUB_ACCESS_TOKEN'])

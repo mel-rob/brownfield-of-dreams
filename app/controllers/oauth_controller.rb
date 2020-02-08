@@ -5,11 +5,6 @@ class OauthController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def destory
-    user = User.find(current_user.id)
-    user.delete(:github_token)
-  end
-
   private
 
   def omni_authorize

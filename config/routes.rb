@@ -41,5 +41,8 @@ Rails.application.routes.draw do
     resources :videos, only: [:show, :index]
   end
 
+  get '/auth/:provider/callback', to: 'oauth#create'
+  get '/auth/github/delete', to: 'oauth#destroy'
+
   resources :user_videos, only:[:create, :destroy]
 end

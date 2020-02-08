@@ -7,8 +7,11 @@ describe 'visitor visits video show page' do
 
     visit tutorial_path(tutorial)
 
-    click_on 'Bookmark'
+    expect(page).to have_button("Bookmark", disabled: true)
 
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(tutorial_path(tutorial))
+    within('.flash-message') do
+      expect(page).to have_content('User must login to bookmark videos')
+    end
   end
 end

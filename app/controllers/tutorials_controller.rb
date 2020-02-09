@@ -4,15 +4,21 @@ class TutorialsController < ApplicationController
   before_action :user_authentication, only: :show
 
   def show
-    tutorial = Tutorial.find(params[:id])
     @facade = TutorialFacade.new(tutorial, params[:video_id])
   end
 
   private
 
   def user_authentication
-    unless current_user
+    if tutorial.classroom and !current_user
+      flash.now[:error] = 'User must login to view classroom tutorials'
+      render file: "#{Rails.root}/public/404.html", status: 404
+    elsif !current_user
       flash.now[:notice] = 'User must login to bookmark videos'
     end
+  end
+
+  def tutorial
+    tutorial ||= Tutorial.find(params[:id])
   end
 end

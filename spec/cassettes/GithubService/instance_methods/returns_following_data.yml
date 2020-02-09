@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - token 7c4acf3a8bd9a5eb8549bc07bae22cca27bf52d5
+      - token <GITHUB_ACCESS_TOKEN>
       User-Agent:
       - Faraday v0.12.2
       Accept-Encoding:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Thu, 06 Feb 2020 23:06:52 GMT
+      - Sat, 08 Feb 2020 22:33:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,17 +33,18 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4991'
+      - '4957'
       X-Ratelimit-Reset:
-      - '1581033214'
+      - '1581201665'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept
       Etag:
-      - W/"5c4f93585ffe4ed3835df0fa54214700"
+      - W/"133b4bb06894703a040531eb49070e34"
       X-Oauth-Scopes:
-      - ''
+      - repo
       X-Accepted-Oauth-Scopes:
       - ''
       X-Github-Media-Type:
@@ -67,10 +68,10 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       X-Github-Request-Id:
-      - F4E4:5228:20FD54:3E3396:5E3C9C0C
+      - D8F7:7EC0:9266C8:1608B31:5E3F373D
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"mel-rob","id":46657526,"node_id":"MDQ6VXNlcjQ2NjU3NTI2","avatar_url":"https://avatars1.githubusercontent.com/u/46657526?v=4","gravatar_id":"","url":"https://api.github.com/users/mel-rob","html_url":"https://github.com/mel-rob","followers_url":"https://api.github.com/users/mel-rob/followers","following_url":"https://api.github.com/users/mel-rob/following{/other_user}","gists_url":"https://api.github.com/users/mel-rob/gists{/gist_id}","starred_url":"https://api.github.com/users/mel-rob/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mel-rob/subscriptions","organizations_url":"https://api.github.com/users/mel-rob/orgs","repos_url":"https://api.github.com/users/mel-rob/repos","events_url":"https://api.github.com/users/mel-rob/events{/privacy}","received_events_url":"https://api.github.com/users/mel-rob/received_events","type":"User","site_admin":false},{"login":"sasloan","id":51456013,"node_id":"MDQ6VXNlcjUxNDU2MDEz","avatar_url":"https://avatars3.githubusercontent.com/u/51456013?v=4","gravatar_id":"","url":"https://api.github.com/users/sasloan","html_url":"https://github.com/sasloan","followers_url":"https://api.github.com/users/sasloan/followers","following_url":"https://api.github.com/users/sasloan/following{/other_user}","gists_url":"https://api.github.com/users/sasloan/gists{/gist_id}","starred_url":"https://api.github.com/users/sasloan/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sasloan/subscriptions","organizations_url":"https://api.github.com/users/sasloan/orgs","repos_url":"https://api.github.com/users/sasloan/repos","events_url":"https://api.github.com/users/sasloan/events{/privacy}","received_events_url":"https://api.github.com/users/sasloan/received_events","type":"User","site_admin":false}]'
     http_version: 
-  recorded_at: Thu, 06 Feb 2020 23:06:52 GMT
+  recorded_at: Sat, 08 Feb 2020 22:33:33 GMT
 recorded_with: VCR 4.0.0

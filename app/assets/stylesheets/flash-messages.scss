@@ -1,8 +1,14 @@
 .notice-flash {
-  margin-top: 15px;
+  color: black;
+  float: right;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.error-flash {
   color: black;
   font-weight: bold;
-  float: right;
   font-size: 22px;
   cursor: pointer;
 }

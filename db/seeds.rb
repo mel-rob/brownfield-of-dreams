@@ -1,3 +1,7 @@
+UserVideo.destroy_all
+Tutorial.destroy_all
+User.destroy_all
+
 prework_tutorial_data = {
   "title"=>"Back End Engineering - Prework",
   "description"=>"Videos for prework.",
@@ -67,7 +71,7 @@ mod_3_tutorial_data = {
   "description"=>"Video content for Mod 3.",
   "thumbnail"=>"https://i.ytimg.com/vi/R5FPYQgB6Zc/hqdefault.jpg",
   "playlist_id"=>"PL1Y67f0xPzdOq2FcpWnawJeyJ3ELUdBkJ",
-  "classroom"=>false,
+  "classroom"=>true,
   "tag_list"=>["Internet", "BDD", "Ruby"],
 }
 m3_tutorial = Tutorial.create! mod_3_tutorial_data
@@ -125,7 +129,6 @@ mod_4_tutorial_data = {
 
 m4_tutorial = Tutorial.create! mod_4_tutorial_data
 
-User.destroy_all
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)
 User.create(email: 'ryan@email.com', first_name: 'Ryan', last_name: 'Allen', password: "password", github_token: ENV['GITHUB_ACCESS_TOKEN'])
 User.create(email: 'mel@email.com', first_name: 'Melissa', last_name: 'Robbins', password: "password")

@@ -16,6 +16,10 @@ class GithubService
     get_json("/user/following")
   end
 
+  def valid_token?
+    get_json("/user")[:message] != "Bad credentials"
+  end
+
   private
   def get_json(url)
     response = conn.get(url)

@@ -1,4 +1,16 @@
 require 'webmock/rspec'
+require 'omniauth'
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+  :provider => 'github',
+  :credentials => {
+    :token => ENV['GITHUB_ACCESS_TOKEN']
+  }
+})
+
+OmniAuth.config.add_mock(:github, {:credentials => {:token => ENV['GITHUB_ACCESS_TOKEN']}})
+
 
 RSpec.configure do |config|
 
@@ -34,4 +46,6 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+
 end

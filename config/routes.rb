@@ -41,5 +41,7 @@ Rails.application.routes.draw do
     resources :videos, only: [:show, :index]
   end
 
+  get '/auth/:provider/callback', to: 'oauth#create'
+
   resources :user_videos, only:[:create, :destroy]
 end

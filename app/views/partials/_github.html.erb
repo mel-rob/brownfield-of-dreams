@@ -1,0 +1,27 @@
+<section class='github'>
+  <h1>GitHub</h1>
+  <h3>Repositories</h3>
+  <% search_results.repos.each do |repo| %>
+    <ul>
+      <section class='repos'>
+        <li><%= link_to repo.name, repo.svn_url %></li>
+      </section>
+    </ul>
+  <% end %>
+  <h3>Followers</h3>
+  <% search_results.followers.each do |follower| %>
+    <ul>
+      <section class='followers'>
+        <li><%= link_to follower.login, follower.html_url %></li>
+      </section>
+    </ul>
+  <% end %>
+  <h3>Following</h3>
+  <% search_results.following.each do |user| %>
+    <ul>
+      <section class='following'>
+        <li><%= link_to user.login, user.html_url %></li>
+      </section>
+    </ul>
+  <% end %>
+</section>

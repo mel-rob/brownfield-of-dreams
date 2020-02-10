@@ -33,4 +33,8 @@ class GithubSearchFacade
       GithubUser.new(following_data)
     end
   end
+
+  def github_token_valid?
+    @service.valid_token?
+  end
 end

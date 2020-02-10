@@ -10,8 +10,4 @@ class User < ApplicationRecord
   enum role: %i[default admin]
   has_secure_password
 
-  def github_token_valid?
-    github_service = GithubService.new(github_token)
-    github_service.valid_token?
-  end
 end

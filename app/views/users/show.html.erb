@@ -7,7 +7,7 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-    <% if current_user.github_token_valid? %>
+    <% if search_results.github_token_valid? %>
       <section class='github'>
         <h1>GitHub</h1>
         <h3>Repositories</h3>

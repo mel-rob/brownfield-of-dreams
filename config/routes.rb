@@ -45,5 +45,5 @@ Rails.application.routes.draw do
 
   resources :user_videos, only:[:create, :destroy]
 
-  patch '/email_confirmation/:id', to: 'email_confirmation#update', as: 'email_confirmation'
+  get '/email_confirmation/:id', to: 'email_confirmation#edit', as: 'email_confirmation'
 end

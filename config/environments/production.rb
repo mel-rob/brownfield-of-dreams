@@ -106,6 +106,6 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
-  
-  config.active_record.raise_in_transactional_callbacks = true
+
+  config.action_mailer.default_url_options = { host: "https://brownfield-of-dreams-ra-mr.herokuapp.com/" }
 end

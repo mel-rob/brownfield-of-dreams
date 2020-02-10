@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
+      send_activation_email(user)
       session[:user_id] = user.id
       send_activation_email
       redirect_to dashboard_path
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
 
-  def send_activation_email
+  def send_activation_email(user)
     ActivationNotifierMailer.inform(user).deliver_now
   end
 end

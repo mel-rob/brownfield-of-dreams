@@ -5,15 +5,15 @@ class GithubService
   end
 
   def repos_by_token
-    get_json("/user/repos?page=1&per_page=5")
+    @repos_by_token ||= get_json("/user/repos?page=1&per_page=5")
   end
 
   def followers_by_token
-    get_json("/user/followers")
+    @followers_by_token ||= get_json("/user/followers")
   end
 
   def following_by_token
-    get_json("/user/following")
+    @following_by_token ||= get_json("/user/following")
   end
 
   def valid_token?

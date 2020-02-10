@@ -16,6 +16,10 @@ RSpec.describe 'As a user when I am on my dashboard' do
 
     visit dashboard_path
 
+    expect(page).not_to have_css('.repos')
+    expect(page).not_to have_css('.followers')
+    expect(page).not_to have_css('.following')
+
     click_link 'Connect to GitHub'
 
     expect(@user.github_token).to eq(ENV['GITHUB_ACCESS_TOKEN'])

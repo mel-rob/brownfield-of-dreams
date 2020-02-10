@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     render locals: {
-      search_results: GithubSearch.new(current_user.github_token)
+      search_results: GithubSearchFacade.new(current_user.github_token)
     }
   end
 

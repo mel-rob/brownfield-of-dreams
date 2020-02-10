@@ -1,4 +1,4 @@
-class GithubSearch
+class GithubSearchFacade
 
   def initialize(github_token)
     @service = GithubService.new(github_token)
@@ -32,5 +32,9 @@ class GithubSearch
     @service.following_by_token.map do |following_data|
       GithubUser.new(following_data)
     end
+  end
+
+  def github_token_valid?
+    @service.valid_token?
   end
 end

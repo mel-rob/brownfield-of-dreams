@@ -1,13 +1,13 @@
 class OauthController < ApplicationController
+
   def create
-    user = User.find(current_user.id)
-    user.update(github_token: omni_authorize[:credentials][:token])
+    current_user.update(github_token: token)
     redirect_to dashboard_path
   end
 
-  private
+private
 
-  def omni_authorize
-    request.env["omniauth.auth"]
+  def token
+    request.env['omniauth.auth']['credentials']['token']
   end
 end

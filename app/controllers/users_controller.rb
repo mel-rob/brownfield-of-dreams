@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
+      ActivationNotifierMailer.inform(user).deliver_now
       session[:user_id] = user.id
       redirect_to dashboard_path
     else

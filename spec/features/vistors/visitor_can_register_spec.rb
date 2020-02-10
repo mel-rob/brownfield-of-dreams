@@ -56,4 +56,36 @@ describe 'vister can create an account', :js do
     expect(current_path).to eq(register_path)
     expect(page).to have_content('Username already exists')
   end
+
+  it 'gets activated when confirming via email' do
+    email = 'jimbob@aol.com'
+    first_name = 'Jim'
+    last_name = 'Bob'
+    password = 'password'
+    password_confirmation = 'password'
+
+    visit '/'
+    click_on 'Sign In'
+    expect(current_path).to eq(login_path)
+
+    click_on 'Sign up now.'
+    expect(current_path).to eq(new_user_path)
+
+    fill_in 'user[email]', with: email
+    fill_in 'user[first_name]', with: first_name
+    fill_in 'user[last_name]', with: last_name
+    fill_in 'user[password]', with: password
+    fill_in 'user[password_confirmation]', with: password
+    click_on 'Create Account'
+
+    expect(User.count).to eq(1)
+    user = User.last
+
+    expect(page).to have_content('Account Status: Inactive - Please check your email')
+    expect(user.active?).to eq(false)
+    visit "/email_confirmation/#{user.id}"
+    expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content('Account Status: Active')
+    expect(User.find(user.id).active?).to eq(true)
+  end
 end

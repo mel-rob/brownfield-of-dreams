@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'oauth#create'
 
   resources :user_videos, only:[:create, :destroy]
+
+  get '/email_confirmation/:id', to: 'email_confirmation#edit', as: 'email_confirmation'
 end

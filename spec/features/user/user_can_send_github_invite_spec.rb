@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'user invite page' do
-  it 'user can access invite page from dashboard' do
-    user = create(:user)
+  it 'user with valid github connnection can access invite page from dashboard', :vcr do
+    user = create(:user, github_token: ENV['GITHUB_ACCESS_TOKEN'])
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit(dashboard_path)
@@ -10,6 +10,15 @@ RSpec.describe 'user invite page' do
     click_on('Send an Invite')
 
     expect(current_path).to eq('/invite')
+  end
+
+  it 'user within invalid connection cannot access invite page from dashboard', :vcr do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit(dashboard_path)
+
+    expect(page).not_to have_content('Send an Invite')
   end
 
   it 'user can send an email to a valid github user', :vcr do

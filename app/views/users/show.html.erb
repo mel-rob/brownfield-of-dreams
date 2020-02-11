@@ -18,7 +18,19 @@
     <% else %>
       <%= link_to 'Connect to GitHub', '/auth/github', method: :get, class: "btn btn-primary mb1 bg-teal" %>
     <% end %>
+
   <section>
     <h1>Bookmarked Segments</h1>
+    <% current_user.order_videos.each do |tutorial, video_array| %>
+      <section class="tutorial-<%= tutorial.id %>">
+        <h3><%= tutorial.title %></h3>
+          <% video_array.each_with_index do |video, index| %>
+            <section class="video-pos-<%= index %>">
+              <%= link_to video.title, tutorial_path(id: video.tutorial_id, video_id: video.id) %><br>
+            </section>
+          <% end %>
+        </section>
+      <% end %>
   </section>
+
 </section>

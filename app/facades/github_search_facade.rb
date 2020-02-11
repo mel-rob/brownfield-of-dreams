@@ -1,5 +1,4 @@
 class GithubSearchFacade
-
   def initialize(github_token)
     @service = GithubService.new(github_token)
   end

@@ -10,7 +10,7 @@ class TutorialsController < ApplicationController
   private
 
   def user_authentication
-    if tutorial.classroom and !current_user
+    if tutorial.classroom && !current_user
       flash.now[:error] = 'User must login to view classroom tutorials'
       render file: "#{Rails.root}/public/404.html", status: 404
     elsif !current_user

@@ -22,7 +22,7 @@ RSpec.describe 'user invite page' do
   end
 
   it 'user can send an email to a valid github user', :vcr do
-    expect(ActionMailer::Base.deliveries.count).to eq(0)
+    mailer_count = ActionMailer::Base.deliveries.count
 
     user = create(:user, github_token: ENV['GITHUB_ACCESS_TOKEN'])
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -38,7 +38,7 @@ RSpec.describe 'user invite page' do
       expect(page).to have_content('Successfully sent invite!')
     end
 
-    expect(ActionMailer::Base.deliveries.count).to eq(1)
+    expect(ActionMailer::Base.deliveries.count).to eq(mailer_count + 1)
   end
 
   it 'user can not send an email to an invalid github user', :vcr do

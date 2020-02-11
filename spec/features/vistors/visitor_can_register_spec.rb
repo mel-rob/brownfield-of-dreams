@@ -8,7 +8,7 @@ describe 'vister can create an account', :js do
     password = 'password'
     password_confirmation = 'password'
 
-    expect(ActionMailer::Base.deliveries.count).to eq(0)
+    mailer_count = ActionMailer::Base.deliveries.count
     visit '/'
 
     click_on 'Sign In'
@@ -33,7 +33,7 @@ describe 'vister can create an account', :js do
     expect(page).to have_content(first_name)
     expect(page).to have_content(last_name)
     expect(page).to_not have_content('Sign In')
-    expect(ActionMailer::Base.deliveries.count).to eq(1)
+    expect(ActionMailer::Base.deliveries.count).to eq(mailer_count + 1)
   end
 
   it 'is not able to create an account if the username already exists' do

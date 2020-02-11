@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
+  # email invite links to /sign_up for a new account
+  get '/sign_up', to: 'users#new'
+
   # Is this being used?
   get '/video', to: 'video#show'
 
@@ -48,7 +51,7 @@ Rails.application.routes.draw do
 
   get '/invite', to: 'github_invite#new', as: 'github_invite'
   post '/invite', to: 'github_invite#create'
-  
+
   # url path for a user confirming email address
   get '/email_confirmation/:id', to: 'email_confirmation#edit', as: 'email_confirmation'
 end

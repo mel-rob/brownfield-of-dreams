@@ -98,14 +98,15 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-  :user_name => ENV["SENDGRID_USERNAME"],
-  :password => ENV["SENDGRID_PASSWORD"],
-  :domain => 'brownfield-of-dreams-ra-mr.herokuapp.com',
-  :address => 'smtp.sendgrid.net',
-  :port => '587',
-  :authentication => 'plain',
-  :enable_starttls_auto => true
-}
-
+    :user_name => ENV["SENDGRID_USERNAME"],
+    :password => ENV["SENDGRID_PASSWORD"],
+    :domain => 'brownfield-of-dreams-ra-mr.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
+  
+  config.active_record.raise_in_transactional_callbacks = true
   config.action_mailer.default_url_options = { host: "https://brownfield-of-dreams-ra-mr.herokuapp.com" }
 end

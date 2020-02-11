@@ -102,10 +102,9 @@ Rails.application.configure do
   :password => ENV["SENDGRID_PASSWORD"],
   :domain => 'brownfield-of-dreams-ra-mr.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 465,
-  :authentication => :plain,
+  :port => '465',
+  :authentication => 'plain',
   :enable_starttls_auto => true
 }
-
   config.action_mailer.default_url_options = { host: "https://brownfield-of-dreams-ra-mr.herokuapp.com" }
 end

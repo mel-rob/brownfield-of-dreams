@@ -5,7 +5,7 @@ class GithubInviteController < ApplicationController
   def create
     service = GithubService.new(current_user.github_token)
     to_email_address = service.email_by_username(params['github_username'])
-    if to_email_address 
+    if to_email_address
       # ActivationNotifierMailer.invite_github_user(@user).deliver
       flash[:notice] = 'Successfully sent invite!'
     else

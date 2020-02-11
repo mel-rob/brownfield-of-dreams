@@ -34,5 +34,13 @@ describe GithubService do
       expect(follower_data).to have_key :login
       expect(follower_data).to have_key :html_url
     end
+
+    scenario "returns a username's associated email", :vcr do
+      github_username = 'rallen20'
+      github_service = GithubService.new(ENV['GITHUB_ACCESS_TOKEN'])
+      search = github_service.email_by_username(github_username)
+
+      expect(search).to eq('rallenwasd@gmail.com')
+    end
   end
 end

@@ -41,9 +41,13 @@ Rails.application.routes.draw do
     resources :videos, only: [:show, :index]
   end
 
+  # oauth path
   get '/auth/:provider/callback', to: 'oauth#create'
 
   resources :user_videos, only:[:create, :destroy]
 
+  get '/invite', to: 'github_invite#show', as: 'github_invite'
+
+  # url path for a user confirming email address
   get '/email_confirmation/:id', to: 'email_confirmation#edit', as: 'email_confirmation'
 end

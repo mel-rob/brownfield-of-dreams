@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   resources :user_videos, only:[:create, :destroy]
 
-  get '/invite', to: 'github_invite#show', as: 'github_invite'
+  get '/invite', to: 'github_invite#new', as: 'github_invite'
 
   # url path for a user confirming email address
   get '/email_confirmation/:id', to: 'email_confirmation#edit', as: 'email_confirmation'

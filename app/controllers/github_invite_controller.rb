@@ -1,5 +1,5 @@
 class GithubInviteController < ApplicationController
-  def show
+  def new
 
   end
 end

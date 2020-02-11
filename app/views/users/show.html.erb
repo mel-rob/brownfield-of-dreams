@@ -11,6 +11,7 @@
     <% else %>
       <li>Account Status: Inactive - Please check your email</li>
     <% end %>
+    <%= link_to 'Send an Invite', github_invite_path, method: :get %>
   </ul>
 
     <% if search_results.github_token_valid? %>

@@ -19,6 +19,10 @@ class GithubService
     get_json('/user')[:message] != 'Bad credentials'
   end
 
+  def email_by_username(github_username)
+    get_json("/users/#{github_username}")[:email]
+  end
+
   private
 
   def get_json(url)

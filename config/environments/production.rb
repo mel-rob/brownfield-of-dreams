@@ -95,16 +95,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # emails
-  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV["SENDGRID_USERNAME"],
-    :password => ENV["SENDGRID_PASSWORD"],
-    :domain => 'brownfield-of-dreams-ra-mr.herokuapp.com',
-    :address => 'smtp.sendgrid.net',
-    :port => '465',
-    :authentication => 'plain',
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.SendGrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SendGrid_USERNAME'],
+    :password       => ENV['SendGrid_PASSWORD'],
+    :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+  
   config.action_mailer.default_url_options = { host: "https://brownfield-of-dreams-ra-mr.herokuapp.com" }
 end

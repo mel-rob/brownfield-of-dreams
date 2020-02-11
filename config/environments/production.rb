@@ -102,8 +102,8 @@ Rails.application.configure do
   :password => ENV["SENDGRID_PASSWORD"],
   :domain => 'brownfield-of-dreams-ra-mr.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 587,
-  :authentication => :plain,
+  :port => '587',
+  :authentication => 'plain',
   :enable_starttls_auto => true
 }
 

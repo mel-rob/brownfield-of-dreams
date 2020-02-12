@@ -1,0 +1,7 @@
+<h4>Invite GitHub user via Email</h4>
+
+<%= form_with(url: '/invite', method: :post) do  %>
+  <%= label_tag(:github_username, 'Github Handle') %>
+  <%= text_field_tag(:github_username) %>
+  <%= submit_tag('Send Invitiation') %>
+<% end %>

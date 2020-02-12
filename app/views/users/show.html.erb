@@ -4,12 +4,12 @@
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>
   <ul>
-    <li>Name: <%= current_user.first_name  %> <%= current_user.last_name %> </li>
-    <li>Email: <%= current_user.email %> </li>
+    <li><b>Name: </b><%= current_user.first_name  %> <%= current_user.last_name %> </li>
+    <li><b>Email: </b><%= current_user.email %> </li>
     <% if current_user.active? %>
-      <li>Account Status: Active</li>
+      <li><b>Account Status: </b>Active</li>
     <% else %>
-      <li>Account Status: Inactive - Please check your email</li>
+      <li><b>Account Status: </b>Inactive - Please check your email.</li>
     <% end %>
   </ul>
 

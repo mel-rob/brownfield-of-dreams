@@ -3,17 +3,12 @@
 <h1 id="message"></h1>
 <div class="col col-4">
 
-
-  <% if @facade.videos.empty? && current_user.nil? || current_user %>
-
-    <h4>Videos (<%= @facade.videos.count %>)</h4>
-    <p>There are no videos in this tutorial.</p>
-
-  <% elsif @facade.videos.empty? && current_user.admin? %>
+  <% if @facade.videos.empty? %>
 
     <h4>Videos (<%= @facade.videos.count %>)</h4>
     <p>There are no videos in this tutorial.</p>
 
+    <% if current_user && current_user.admin? %>
       <div data-controller="tutorials">
         <%= link_to "Add Video", "#", "data-action" => "click->tutorials#showVideoForm", class: "video-position-submit btn btn-outline", id: @facade.id %>
       </div>
@@ -30,10 +25,12 @@
 
           <%= f.submit "Create Video", class: "mt1 btn btn-outline"  %>
         <% end %>
+      </div>
     </div>
-  </div>
+    <% end %>
 
   <% else %>
+
     <h4>Videos</h4>
     <ul>
       <% @facade.videos.each do |video| %>
@@ -43,7 +40,6 @@
       <% end %>
     </ul>
 
-    <% if !@facade.videos.empty? %>
       <div class="col col-8">
         <div class="title-bookmark">
           <h3><%= @facade.current_video.title %></h3>
@@ -51,10 +47,8 @@
             <% if current_user %>
               <%= button_to "Bookmark", user_videos_path(video_id: @facade.current_video.id, user_id: current_user.id), method: :post, class: "btn btn-outline mb1 teal" %>
             <% else %>
-              <a class="tooltip">Bookmark
-                  <span class="tooltiptext">Please Sign In or Register</span>
-              </a>
-            <% end %>
+              <%= link_to 'Please Sign In to Bookmark', '/login' %>
+           <% end %>
           </div>
         </div>
 
@@ -100,5 +94,4 @@
         </p>
       </div>
     <% end %>
-  <% end %>
 </main>

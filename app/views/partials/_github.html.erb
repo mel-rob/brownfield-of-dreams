@@ -13,7 +13,7 @@
     <ul>
       <section class='follower' id='follower-<%= follower.login %>'>
         <li><%= link_to follower.login, follower.html_url %>
-        <%= link_to 'Add Friend', "friendships/#{follower.login}" if follower.friendable?(current_user) %></li>
+        <%= link_to 'Add Friend', "friendships/#{follower.login}", class: 'btn btn-primary mb1 bg-teal' if follower.friendable?(current_user) %></li>
       </section>
     </ul>
   <% end %>
@@ -22,7 +22,7 @@
     <ul>
       <section class='following' id='following-<%= user.login %>'>
         <li><%= link_to user.login, user.html_url %>
-        <%= link_to 'Add Friend', "friendships/#{user.login}" if user.friendable?(current_user) %></li>
+        <%= link_to 'Add Friend', "friendships/#{user.login}", class: 'btn btn-primary mb1 bg-teal' if user.friendable?(current_user) %></li>
       </section>
     </ul>
   <% end %>

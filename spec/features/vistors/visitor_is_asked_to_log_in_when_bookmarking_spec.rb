@@ -7,10 +7,8 @@ describe 'visitor visits video show page' do
 
     visit tutorial_path(tutorial)
 
-    expect(page).to have_content('Please Sign In to Bookmark')
+    find('.tooltiptext').should have_content('Please log in or register to bookmark videos')
 
-    click_on 'Please Sign In to Bookmark'
-
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(tutorial_path(tutorial))
   end
 end

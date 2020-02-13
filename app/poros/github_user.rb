@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GithubUser
   attr_reader :login, :html_url
 
@@ -7,7 +9,8 @@ class GithubUser
   end
 
   def friendable?(current_user)
-    return false if current_user.friends.pluck(:github_username).include?(self.login)
-    User.exists?(github_username: self.login)
+    return false if current_user.friends.pluck(:github_username).include?(login)
+
+    User.exists?(github_username: login)
   end
 end

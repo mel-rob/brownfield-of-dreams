@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OauthController < ApplicationController
   def create
     current_user.update(github_token: token_retrieval, github_username: username_retrieval)

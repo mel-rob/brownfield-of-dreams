@@ -13,8 +13,6 @@ class TutorialsController < ApplicationController
     if tutorial.classroom && !current_user
       flash.now[:error] = 'User must login to view classroom tutorials'
       render file: "#{Rails.root}/public/404.html", status: 404
-    elsif !current_user
-      flash.now[:notice] = 'User must login to bookmark videos'
     end
   end
 

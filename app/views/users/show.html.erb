@@ -24,12 +24,16 @@
     <% end %>
 
     <section class='friends'>
-      <h3>Friends</h3>
-        <% current_user.friends.each do |friend| %>
-          <ul>
-            <li><%= friend.first_name + ' ' + friend.last_name + " - " + friend.github_username %></li>
-          </ul>
-        <% end %>
+      <h1>Friends</h1>
+        <% if current_user.friends.empty? %>
+          <h3>Add friends to see them here.</>
+        <% else %>
+          <% current_user.friends.each do |friend| %>
+            <ul>
+              <li><%= friend.first_name + ' ' + friend.last_name + " - " + friend.github_username %></li>
+            </ul>
+            <% end %>
+          <% end %>
     </section>
 
   <section>

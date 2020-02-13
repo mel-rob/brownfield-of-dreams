@@ -19,6 +19,6 @@ class TutorialsController < ApplicationController
   end
 
   def tutorial
-    tutorial ||= Tutorial.find(params[:id])
+    @tutorial ||= Tutorial.find(params[:id])
   end
 end

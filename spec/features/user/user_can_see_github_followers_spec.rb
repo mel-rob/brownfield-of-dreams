@@ -17,10 +17,11 @@ RSpec.describe 'user dashboard page' do
 
     within('.github') do
       expect(page).to have_content('Followers')
-      expect(page).to have_css('.followers', count: 2)
+      expect(page).to have_css('.followers')
+      expect(page).to have_css('.follower', count: 2)
     end
 
-    within(first('.followers')) do
+    within(first('.follower')) do
       expect(page).to have_link('sasloan', href: "https://github.com/sasloan")
     end
   end

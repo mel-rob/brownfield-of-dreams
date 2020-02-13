@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EmailConfirmationController < ApplicationController
   def edit
     user = User.find(params[:id])

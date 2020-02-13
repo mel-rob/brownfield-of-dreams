@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class GithubInviteController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     service = GithubService.new(current_user.github_token)

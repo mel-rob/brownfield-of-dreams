@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActivationNotifierMailer < ApplicationMailer
   def inform(user)
     @user = user

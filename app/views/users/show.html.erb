@@ -23,6 +23,15 @@
       <%= link_to 'Connect to GitHub', '/auth/github', method: :get, class: "btn btn-primary mb1 bg-teal" %>
     <% end %>
 
+    <section class='friends'>
+      <h3>Friends</h3>
+        <% current_user.friends.each do |friend| %>
+          <ul>
+            <li><%= friend.first_name + ' ' + friend.last_name + " - " + friend.github_username %></li>
+          </ul>
+        <% end %>
+    </section>
+
   <section>
     <h1>Bookmarked Segments</h1>
     <% current_user.order_videos.each do |tutorial, video_array| %>

@@ -35,8 +35,7 @@ Rails.application.routes.draw do
   # email invite links to /sign_up for a new account
   get '/sign_up', to: 'users#new'
 
-  # Is this being used?
-  get '/video', to: 'video#show'
+  get '/friendships/:login', to: 'friendships#create'
 
   resources :users, only: [:new, :create, :update, :edit]
 

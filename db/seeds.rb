@@ -130,6 +130,6 @@ mod_4_tutorial_data = {
 m4_tutorial = Tutorial.create! mod_4_tutorial_data
 
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password:  "password", role: :admin)
-User.create(email: 'ryan@email.com', first_name: 'Ryan', last_name: 'Allen', password: "password", github_token: ENV['GITHUB_ACCESS_TOKEN'])
 User.create(email: 'mel@email.com', first_name: 'Melissa', last_name: 'Robbins', password: "password")
 User.create(email: 'bob@email.com', first_name: 'bob', last_name: 'Robbins', password: "password")
+User.create(email: 'ryan@email.com', first_name: 'ryan', last_name: 'Robbins', password: "password", github_username: 'rallen20')

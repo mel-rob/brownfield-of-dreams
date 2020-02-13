@@ -16,10 +16,11 @@ RSpec.describe 'user dashboard page' do
     within('.github') do
       expect(page).to have_content('GitHub')
       expect(page).to have_content('Repositories')
+      expect(page).to have_css('.repos')
+      expect(page).to have_css('.repo', count: 5)
     end
-    expect(page).to have_css('.repos', count: 5)
 
-    within(first('.repos')) do
+    within(first('.repo')) do
       expect(page).to have_link('adopt_dont_shop_paired', href: 'https://github.com/DanielEFrampton/adopt_dont_shop_paired')
     end
   end

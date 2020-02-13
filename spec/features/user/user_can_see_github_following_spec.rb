@@ -17,6 +17,7 @@ RSpec.describe 'user dashboard page' do
 
     within('.github') do
       expect(page).to have_content('Following')
+      expect(page).to have_css('.followings')
       expect(page).to have_css('.following', count: 2)
     end
 

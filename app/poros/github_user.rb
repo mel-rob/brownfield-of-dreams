@@ -5,4 +5,9 @@ class GithubUser
     @login = attributes[:login]
     @html_url = attributes[:html_url]
   end
+
+  def friendable?(current_user)
+    return false if current_user.friends.pluck(:github_username).include?(self.login)
+    User.exists?(github_username: self.login)
+  end
 end
